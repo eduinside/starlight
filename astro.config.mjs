@@ -26,7 +26,9 @@ export default defineConfig({
 				},
 				{
 					label: 'Preview',
-					link: 'https://notion-styler-byeduin.netlify.app/',
+					items: [
+						{label: 'Notion Styler', slug: '/notion-styler/' },
+					],
 				},
 			],
 		}),
