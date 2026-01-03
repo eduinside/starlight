@@ -27,7 +27,7 @@ export default defineConfig({
 				{
 					label: 'Preview',
 					items: [
-						{label: 'Notion Styler', slug: '/notion-styler/' },
+						{label: 'Notion Styler', slug: 'notion-styler' },
 					],
 				},
 			],
