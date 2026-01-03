@@ -25,7 +25,6 @@ export default defineConfig({
 					items: [
 						{ label: 'Notion Styler', slug: 'vives/notion-styler' },
 						{ label: 'Preview', link: '/notion-styler' },
-						{ label: 'in', slug: 'pages/notion-styler' },
 					],
 				},
 			],
