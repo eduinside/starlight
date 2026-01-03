@@ -22,12 +22,10 @@ export default defineConfig({
 				},
 				{
 					label: 'Vives',
-					autogenerate: { directory: 'vives' },
-				},
-				{
-					label: 'Preview',
 					items: [
-						{label: 'Notion Styler', link: '/notion-styler' },
+						{ label: 'Notion Styler', slug: 'vives/notion-styler' },
+						{ label: 'Preview', link: '/notion-styler' },
+						{ label: 'in', slug: 'pages/notion-styler' },
 					],
 				},
 			],
