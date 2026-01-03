@@ -24,6 +24,10 @@ export default defineConfig({
 					label: 'Vives',
 					autogenerate: { directory: 'vives' },
 				},
+				{
+					label: 'Preview',
+					link: 'https://notion-styler-byeduin.netlify.app/',
+				},
 			],
 		}),
 	],
