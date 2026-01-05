@@ -1,5 +1,5 @@
 ---
-title: Extention-for-Edunavi
+title: Extention for Edunavi
 description: Get Content ID from Edunavi Archive Homepage
 ---
 Get Content ID from Edunavi Archive Homepage

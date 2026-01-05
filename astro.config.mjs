@@ -9,7 +9,11 @@ export default defineConfig({
 			title: 'byeduin VIVES',
 			sidebar: [
 				{
-					label: 'App',
+					label: 'Intro',
+					link: '/intro',
+				},
+				{
+					label: 'Apps',
 					autogenerate: { directory: 'app' },
 				},
 			],
