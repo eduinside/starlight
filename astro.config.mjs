@@ -14,7 +14,7 @@ export default defineConfig({
 				},
 				{
 					label: 'Apps',
-					autogenerate: { directory: 'app' },
+					autogenerate: { directory: 'apps' },
 				},
 			],
 		}),
