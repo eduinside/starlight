@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,9 @@
         }
 
         * {
-            margin: 0; padding: 0; box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Inter', -apple-system, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
@@ -95,7 +98,10 @@
             scrollbar-width: none;
             border-bottom: 1px solid var(--border);
         }
-        .tab-bar::-webkit-scrollbar { display: none; }
+
+        .tab-bar::-webkit-scrollbar {
+            display: none;
+        }
 
         .tab-item {
             padding: 8px 16px;
@@ -108,6 +114,7 @@
             color: var(--text-sub);
             transition: 0.2s;
         }
+
         .tab-item.active {
             background: var(--accent);
             color: white;
@@ -129,93 +136,293 @@
             animation: fadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
 
-        .alarm-info .time { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
-        .alarm-info .name { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 2px; }
-        .alarm-info .days { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
-
-        .item-actions { display: flex; gap: 4px; }
-        .action-btn {
-            background: none; border: none; padding: 10px; cursor: pointer; border-radius: 50%;
-            transition: 0.2s; color: var(--text-sub);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .action-btn:hover { background: rgba(128,128,128,0.15); }
-        .action-btn.edit:hover { color: var(--accent); }
-        .action-btn.delete:hover { color: var(--danger); }
+
+        .alarm-info .time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .alarm-info .name {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 2px;
+        }
+
+        .alarm-info .days {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 4px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.2s;
+            color: var(--text-sub);
+        }
+
+        .action-btn:hover {
+            background: rgba(128, 128, 128, 0.15);
+        }
+
+        .action-btn.edit:hover {
+            color: var(--accent);
+        }
+
+        .action-btn.delete:hover {
+            color: var(--danger);
+        }
 
         .control-bar {
-            position: fixed; bottom: 25px; width: calc(100% - 40px); max-width: 500px;
-            background: var(--container-bg); backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px); border-radius: 25px; padding: 10px;
-            display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px;
-            border: 1px solid var(--border); box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            position: fixed;
+            bottom: 25px;
+            width: calc(100% - 40px);
+            max-width: 500px;
+            background: var(--container-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 25px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            border: 1px solid var(--border);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
             z-index: 500;
         }
 
         .icon-btn {
-            background: none; border: none; color: var(--text-main);
-            display: flex; flex-direction: column; align-items: center;
-            cursor: pointer; padding: 8px 0; border-radius: 18px; transition: 0.2s;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 0;
+            border-radius: 18px;
+            transition: 0.2s;
         }
-        .icon-btn:hover { background: rgba(128,128,128,0.1); }
-        .icon-btn span { font-size: 0.6rem; margin-top: 4px; font-weight: 600; opacity: 0.8; }
+
+        .icon-btn:hover {
+            background: rgba(128, 128, 128, 0.1);
+        }
+
+        .icon-btn span {
+            font-size: 0.6rem;
+            margin-top: 4px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
 
         .modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); display: none;
-            justify-content: center; align-items: center; z-index: 1000; padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
         }
 
         .modal-content {
-            background: var(--bg-color); width: 100%; max-width: 400px;
-            border-radius: 30px; padding: 25px; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             border: 1px solid var(--border);
         }
 
-        .form-group { margin-bottom: 18px; }
-        label { display: block; font-size: 0.8rem; margin-bottom: 6px; color: var(--text-sub); font-weight: 600; }
-        input[type="text"], input[type="time"] {
-            width: 100%; padding: 14px; border-radius: 14px;
-            border: 1px solid var(--border); background: var(--item-bg);
-            color: var(--text-main); font-size: 1rem; outline: none;
+        .form-group {
+            margin-bottom: 18px;
         }
-        input:focus { border-color: var(--accent); }
 
-        .day-selector { display: flex; gap: 4px; justify-content: space-between; margin-top: 8px; }
-        .day-checkbox { display: none; }
-        .day-label {
-            width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border);
-            display: flex; justify-content: center; align-items: center; font-size: 0.75rem;
-            cursor: pointer; transition: 0.2s; font-weight: 600; background: var(--item-bg);
+        label {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+            color: var(--text-sub);
+            font-weight: 600;
         }
-        .day-checkbox:checked + .day-label { background: var(--accent); color: white; border-color: var(--accent); }
+
+        input[type="text"],
+        input[type="time"] {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--item-bg);
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+        }
+
+        .day-selector {
+            display: flex;
+            gap: 4px;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+
+        .day-checkbox {
+            display: none;
+        }
+
+        .day-label {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: 600;
+            background: var(--item-bg);
+        }
+
+        .day-checkbox:checked+.day-label {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
 
         .btn-primary {
-            width: 100%; padding: 15px; border-radius: 16px; border: none;
-            background: var(--accent); color: white; font-weight: 700; cursor: pointer;
-            margin-top: 10px; font-size: 1rem;
+            width: 100%;
+            padding: 15px;
+            border-radius: 16px;
+            border: none;
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 1rem;
         }
 
         .empty-state {
-            text-align: center; color: var(--text-sub); padding: 40px 20px;
-            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            text-align: center;
+            color: var(--text-sub);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         #alarm-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--accent); color: white; display: none;
-            flex-direction: column; justify-content: center; align-items: center; z-index: 2000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            color: white;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
         }
-        #alarm-overlay h1 { font-size: 5rem; font-weight: 800; margin: 10px 0; }
+
+        #alarm-overlay h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
         #stop-alarm {
-            padding: 18px 50px; border-radius: 50px; border: 2.5px solid white;
-            background: transparent; color: white; font-size: 1.4rem; font-weight: 800; cursor: pointer;
-            margin-top: 40px; transition: 0.2s;
+            padding: 18px 50px;
+            border-radius: 50px;
+            border: 2.5px solid white;
+            background: transparent;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: 0.2s;
         }
-        #stop-alarm:hover { background: white; color: var(--accent); }
+
+        #stop-alarm:hover {
+            background: white;
+            color: var(--accent);
+        }
+
+        /* Floating Home Button Style */
+        .floating-home-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            background: #4f46e5;
+            color: white !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+            text-decoration: none;
+        }
+
+        .floating-home-btn:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: #4338ca;
+        }
+
+        .floating-home-btn:active {
+            transform: scale(0.95);
+        }
+
+        .floating-home-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
     </style>
 </head>
+
 <body data-theme="light">
 
     <div class="clock-section">
@@ -280,13 +487,20 @@
             <div class="form-group">
                 <label>반복 요일</label>
                 <div class="day-selector">
-                    <input type="checkbox" id="d0" class="day-checkbox" value="0"><label for="d0" class="day-label">일</label>
-                    <input type="checkbox" id="d1" class="day-checkbox" value="1" checked><label for="d1" class="day-label">월</label>
-                    <input type="checkbox" id="d2" class="day-checkbox" value="2" checked><label for="d2" class="day-label">화</label>
-                    <input type="checkbox" id="d3" class="day-checkbox" value="3" checked><label for="d3" class="day-label">수</label>
-                    <input type="checkbox" id="d4" class="day-checkbox" value="4" checked><label for="d4" class="day-label">목</label>
-                    <input type="checkbox" id="d5" class="day-checkbox" value="5" checked><label for="d5" class="day-label">금</label>
-                    <input type="checkbox" id="d6" class="day-checkbox" value="6"><label for="d6" class="day-label">토</label>
+                    <input type="checkbox" id="d0" class="day-checkbox" value="0"><label for="d0"
+                        class="day-label">일</label>
+                    <input type="checkbox" id="d1" class="day-checkbox" value="1" checked><label for="d1"
+                        class="day-label">월</label>
+                    <input type="checkbox" id="d2" class="day-checkbox" value="2" checked><label for="d2"
+                        class="day-label">화</label>
+                    <input type="checkbox" id="d3" class="day-checkbox" value="3" checked><label for="d3"
+                        class="day-label">수</label>
+                    <input type="checkbox" id="d4" class="day-checkbox" value="4" checked><label for="d4"
+                        class="day-label">목</label>
+                    <input type="checkbox" id="d5" class="day-checkbox" value="5" checked><label for="d5"
+                        class="day-label">금</label>
+                    <input type="checkbox" id="d6" class="day-checkbox" value="6"><label for="d6"
+                        class="day-label">토</label>
                 </div>
             </div>
             <button class="btn-primary" id="saveBtn" onclick="saveAlarm()">저장하기</button>
@@ -344,16 +558,16 @@
                 if ('wakeLock' in navigator) {
                     wakeLock = await navigator.wakeLock.request('screen');
                 }
-            } catch (err) {}
+            } catch (err) { }
         }
         requestWakeLock();
 
         // 1. Clock Update & Web Worker Listener
-        worker.onmessage = function() {
+        worker.onmessage = function () {
             const now = new Date();
             const timeStr = now.toLocaleTimeString('ko-KR', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
             const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-            
+
             // UI 업데이트
             document.getElementById('main-clock').textContent = timeStr;
             document.getElementById('main-date').textContent = now.toLocaleDateString('ko-KR', dateOptions);
@@ -366,7 +580,7 @@
             currentTab = tab;
             const tabs = document.querySelectorAll('.tab-item');
             tabs.forEach(t => {
-                const targetText = tab === 'all' ? '전체' : ['일','월','화','수','목','금','토'][tab];
+                const targetText = tab === 'all' ? '전체' : ['일', '월', '화', '수', '목', '금', '토'][tab];
                 t.classList.toggle('active', t.innerText === targetText);
             });
             renderAlarms();
@@ -455,25 +669,25 @@
             const now = new Date();
             const h = String(now.getHours()).padStart(2, '0');
             const m = String(now.getMinutes()).padStart(2, '0');
-            
+
             document.getElementById('modalTitle').innerText = "알람 추가";
             document.getElementById('saveBtn').innerText = "저장하기";
             document.getElementById('editId').value = "";
             document.getElementById('alarmName').value = "";
             document.getElementById('alarmTime').value = `${h}:${m}`;
-            
+
             openModal('alarmModal');
         }
 
         function openEditModal(id) {
             const alarm = alarms.find(a => a.id === id);
-            if(!alarm) return;
+            if (!alarm) return;
             document.getElementById('modalTitle').innerText = "알람 수정";
             document.getElementById('saveBtn').innerText = "수정 완료";
             document.getElementById('editId').value = id;
             document.getElementById('alarmName').value = alarm.name;
             document.getElementById('alarmTime').value = alarm.time;
-            for(let i=0; i<7; i++) document.getElementById(`d${i}`).checked = alarm.days.includes(i);
+            for (let i = 0; i < 7; i++) document.getElementById(`d${i}`).checked = alarm.days.includes(i);
             openModal('alarmModal');
         }
 
@@ -482,11 +696,11 @@
             const name = document.getElementById('alarmName').value || "알람";
             const time = document.getElementById('alarmTime').value;
             const days = [];
-            for(let i=0; i<7; i++) { if(document.getElementById(`d${i}`).checked) days.push(i); }
-            if(!time) return alert("시간을 선택해 주세요.");
-            if(days.length === 0) return alert("반복할 요일을 선택해 주세요.");
+            for (let i = 0; i < 7; i++) { if (document.getElementById(`d${i}`).checked) days.push(i); }
+            if (!time) return alert("시간을 선택해 주세요.");
+            if (days.length === 0) return alert("반복할 요일을 선택해 주세요.");
 
-            if(id) {
+            if (id) {
                 const idx = alarms.findIndex(a => a.id == id);
                 alarms[idx] = { ...alarms[idx], name, time, days };
             } else {
@@ -508,13 +722,13 @@
             list.innerHTML = "";
             let filtered = currentTab === 'all' ? alarms : alarms.filter(a => a.days.includes(currentTab));
 
-            if(filtered.length === 0) {
+            if (filtered.length === 0) {
                 list.innerHTML = `<div class="empty-state"><i data-lucide="calendar-x"></i><p>설정된 알람이 없습니다.</p></div>`;
                 lucide.createIcons(); return;
             }
 
             const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
-            filtered.sort((a,b) => a.time.localeCompare(b.time)).forEach(alarm => {
+            filtered.sort((a, b) => a.time.localeCompare(b.time)).forEach(alarm => {
                 const dayStr = alarm.days.length === 7 ? "매일" : alarm.days.map(d => dayNames[d]).join(', ');
                 const item = document.createElement('div');
                 item.className = 'alarm-item';
@@ -536,7 +750,7 @@
 
         // Persistence & Helpers
         function exportAlarms() {
-            const blob = new Blob([JSON.stringify({alarms, logs})], {type: 'application/json'});
+            const blob = new Blob([JSON.stringify({ alarms, logs })], { type: 'application/json' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = `time_app_backup.json`; a.click();
@@ -563,7 +777,7 @@
             });
         }
         function clearLogs() { logs = []; localStorage.setItem('alarm_logs', "[]"); renderLogs(); }
-        function openModal(id) { document.getElementById(id).style.display = 'flex'; if(id === 'logModal') renderLogs(); }
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; if (id === 'logModal') renderLogs(); }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         function toggleTheme() {
             const b = document.body;
@@ -572,5 +786,13 @@
 
         renderAlarms();
     </script>
+    <a href="/" class="floating-home-btn" title="byeduin apps" aria-label="byeduin apps">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+            </path>
+        </svg>
+    </a>
 </body>
+
 </html>
